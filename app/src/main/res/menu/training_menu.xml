@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/voice"
+        android:icon="@drawable/ic_voice"
+        android:title="@string/training_menu_voice"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/redraw"
+        android:icon="@drawable/ic_draw"
+        android:title="@string/training_menu_redraw"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/delete"
+        android:icon="@drawable/ic_delete"
+        android:title="@string/delete"
+        app:showAsAction="never" />
+</menu>

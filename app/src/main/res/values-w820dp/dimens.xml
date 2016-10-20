@@ -1,0 +1,10 @@
+<resources>
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+
+    <dimen name="floating_button_margin">16dp</dimen>
+
+    <dimen name="tab_max_width">264dp</dimen>
+    <dimen name="tab_padding_bottom">16dp</dimen>
+    <dimen name="tab_label">14sp</dimen>
+    <dimen name="custom_tab_layout_height">72dp</dimen>
+</resources>

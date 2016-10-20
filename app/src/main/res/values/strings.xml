@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">WCards</string>
+
+    <string name="delete">Delete</string>
+    <string name="clear">Clear</string>
+    <string name="complete">Complete</string>
+    <string name="prev">Previous</string>
+    <string name="next">Next</string>
+
+    <string name="counter" formatted="false">%d / %d</string>
+    <string name="counter_pages" formatted="false">Pages: %d / %d</string>
+    <string name="counter_cards" formatted="false">Cards: %d / %d</string>
+    <string name="counter_translations" formatted="false">Translated: %d / %d</string>
+
+    <!-- Packs -->
+    <string name="packs_drawer_item_active">Active packs</string>
+    <string name="packs_drawer_item_completed">Completed packs</string>
+    <string name="packs_drawer_item_instructions">Instructions</string>
+    <string name="packs_drawer_item_info">Info</string>
+
+    <string name="packs_list_context_open">Open</string>
+    <string name="packs_list_context_activate">Activate</string>
+
+    <string name="packs_no_data">Tap    +    button to select text file</string>
+
+    <string name="packs_message_moved_to_completed">Pack moved to completed list</string>
+    <string name="packs_message_moved_to_active">Pack moved to active list</string>
+    <string name="packs_error_message_big_file">This file is too big to be imported</string>
+    <string name="packs_error_message_cant_read_file">Can not read file</string>
+    <string name="packs_error_message_read_permission_required">Read External Storage permission required</string>
+
+    <!-- Pack -->
+    <string name="pack_button_words_selection">Select Words</string>
+    <string name="pack_button_words_list">Words List</string>
+    <string name="pack_button_cards_draw">Draw Cards</string>
+    <string name="pack_button_ru_en">Russian-English</string>
+    <string name="pack_button_en_ru">English-Russian</string>
+    <string name="pack_button_activate">Activate</string>
+
+    <string name="pack_message_no_cards_to_draw">No cards to draw</string>
+    <string name="pack_message_no_cards_to_train">No cards to train</string>
+
+    <!-- Words Selection -->
+    <string name="words_selection_context_add">Add</string>
+    <string name="words_selection_context_cancel">Cancel</string>
+
+    <!-- Words List -->
+    <string name="words_list_menu_translate">Translate</string>
+    <string name="words_list_button_translate">Translate New Words</string>
+    <string name="words_list_no_translation">Not translated</string>
+    <string name="words_list_no_data">No words exist</string>
+
+    <!-- Translation -->
+    <string name="translation_button_edit">Edit</string>
+    <string name="translation_list_no_data">No translations found</string>
+    <string name="translation_menu_voice">Voice</string>
+
+    <string name="translation_word_removed">Word removed</string>
+
+    <!-- Drawing -->
+    <string name="drawing_menu_clear">Clear</string>
+    <string name="drawing_menu_voice">Voice</string>
+
+    <string name="drawing_message_word_removed">Word removed</string>
+
+    <!-- Training -->
+    <string name="training_menu_voice">Voice</string>
+    <string name="training_menu_redraw">Redraw</string>
+
+    <string name="training_word_removed">Word removed</string>
+
+    <!-- Instructions -->
+    <string name="instructions_navigation_button_close">Done</string>
+
+    <string name="instructions_1">Choose any video subtitles file\nor text file you want to translate\nNote: file size should be less than 512KB</string>
+    <string name="instructions_2">Mark unknown words by tapping\nOr long tappin to select multiple words</string>
+    <string name="instructions_3">Make associations with new word\nwhile drawing the card</string>
+    <string name="instructions_4">Train the pack until you will\nbe able to translate all words. After,\ncomplete or delete the pack.</string>
+    <string name="instructions_5">In training mode:\nTap on a card if you know the translation.\nSwipe to flip a card to see the translation</string>
+    <string name="instructions_6">Now you can watch\nthe video without a dictionary</string>
+
+    <!-- About -->
+    <string name="about_text">"WCards" for personal use only.\nNot for commercial use.\n\nApplication is made with LinguaLeo API.\n\nAuthor: umid.safarov@gmail.com</string>
+    <string name="about_repo"><a href="http://www.google.com">Github repository link</a></string>
+    <string name="about_button_close">Close</string>
+
+
+</resources>

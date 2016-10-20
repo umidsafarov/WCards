@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">WCards</string>
+
+    <string name="delete">Удалить</string>
+    <string name="clear">Очистить</string>
+    <string name="complete">Завершить</string>
+    <string name="prev">Назад</string>
+    <string name="next">Вперед</string>
+
+    <string name="counter" formatted="false">%d / %d</string>
+    <string name="counter_pages" formatted="false">Страница: %d / %d</string>
+    <string name="counter_cards" formatted="false">Карточек: %d / %d</string>
+    <string name="counter_translations" formatted="false">Переведено: %d / %d</string>
+
+    <!-- Packs -->
+    <string name="packs_drawer_item_active">Активные</string>
+    <string name="packs_drawer_item_completed">Завершенные</string>
+    <string name="packs_drawer_item_instructions">Инструкция</string>
+    <string name="packs_drawer_item_info">Информация</string>
+
+    <string name="packs_list_context_open">Открыть</string>
+    <string name="packs_list_context_activate">В Активные</string>
+
+    <string name="packs_no_data">Нажмите     +     чтобы выбрать текстовый файл</string>
+
+    <string name="packs_message_moved_to_completed">Колода перемещена в список активных</string>
+    <string name="packs_message_moved_to_active">Колода перемещена в список заверешенных</string>
+    <string name="packs_error_message_big_file">Слишком большой размер файла</string>
+    <string name="packs_error_message_cant_read_file">Не удалось импортировать файл</string>
+    <string name="packs_error_message_read_permission_required">Требуется доступ к файлам на накопителе</string>
+
+    <!-- Pack -->
+    <string name="pack_button_words_selection">Выбрать слова</string>
+    <string name="pack_button_words_list">Список слов</string>
+    <string name="pack_button_cards_draw">Создать карточки</string>
+    <string name="pack_button_ru_en">Русский-English</string>
+    <string name="pack_button_en_ru">English-Русский</string>
+    <string name="pack_button_activate">В Активные</string>
+
+    <string name="pack_message_no_cards_to_draw">Нет карточек для создания</string>
+    <string name="pack_message_no_cards_to_train">Нет карточек для тренировки</string>
+
+    <!-- Words Selection -->
+    <string name="words_selection_context_add">Добавить</string>
+    <string name="words_selection_context_cancel">Отмена</string>
+
+    <!-- Words List -->
+    <string name="words_list_menu_translate">Перевести</string>
+    <string name="words_list_button_translate">Перевести новые</string>
+    <string name="words_list_no_translation">Нет перевода</string>
+    <string name="words_list_no_data">Нет слов в списке</string>
+
+    <!-- Translation -->
+    <string name="translation_button_edit">Редактировать</string>
+    <string name="translation_list_no_data">Не найдено перевода</string>
+    <string name="translation_menu_voice">Голос</string>
+
+    <string name="translation_word_removed">Слово удалено</string>
+
+    <!-- Drawing -->
+    <string name="drawing_menu_clear">Очистиь</string>
+    <string name="drawing_menu_voice">Голос</string>
+
+    <string name="drawing_message_word_removed">Слово удалено</string>
+
+    <!-- Training -->
+    <string name="training_menu_voice">Голос</string>
+    <string name="training_menu_redraw">Пересоздать</string>
+
+    <string name="training_word_removed">Слово удалено</string>
+
+    <!-- Instructions -->
+    <string name="instructions_navigation_button_close">Готово</string>
+
+    <string name="instructions_1">Выберите файл с субтитрами\nлибо другой текстовый файл\nкоторый вы хотите перевести\nВнимание: размер файла не должен\nпревышать 512KB</string>
+    <string name="instructions_2">Выберите неизвестные вам слова\nнажав на них. Либо выберите сразу\nнесколько слов зажав палец на слове</string>
+    <string name="instructions_3">Создавайте ассоциации\nс новым словом пока вы рисуете\nкарточку</string>
+    <string name="instructions_4">Тренируйте колоду пока\nвы не сможете безошибочно переводить\nвсе слова. Затем завершите\nколоду либо удалите</string>
+    <string name="instructions_5">В режиме тренировки:\nНажмите на экран если вы знаете перевод.\nЛибо смахните карту чтобы перевернуть\nеё и посмотреть перевод</string>
+    <string name="instructions_6">Теперь вы можете смотреть\nвидео на английском не отвелкаясь\nна словарь</string>
+
+    <!-- About -->
+    <string name="about_text">"WCards" создан для личного пользования.\nНе для коммерции.\n\nВ пограмме используется API LinguaLeo.\n\nАвтор: umid.safarov@gmail.com</string>
+    <string name="about_repo"><a href="http://www.google.com">Ссылка на Github</a></string>
+    <string name="about_button_close">Закрыть</string>
+
+
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF7200</color>
+    <color name="colorPrimaryDark">#cc6200</color>
+    <color name="colorAccent">#FF7200</color>
+    <color name="textColorPrimary">#000000</color>
+
+    <color name="activityBackgroundColor">#f1f1f1</color>
+
+    <color name="textColorGray">#888888</color>
+
+    <color name="textColorDrawingHelp">#cccccc</color>
+</resources>

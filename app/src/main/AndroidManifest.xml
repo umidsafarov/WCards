@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gmail.safarov.umid.wcards">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:launchMode="singleTop"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.gmail.safarov.umid.wcards.activities.packs.PacksActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.gmail.safarov.umid.wcards.activities.pack.PackActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName="com.gmail.safarov.umid.wcards.activities.packs.PacksActivity" />
+        <activity
+            android:name="com.gmail.safarov.umid.wcards.activities.wordsselection.WordsSelectionActivity"
+            android:parentActivityName="com.gmail.safarov.umid.wcards.activities.pack.PackActivity" />
+        <activity
+            android:name="com.gmail.safarov.umid.wcards.activities.wordslist.WordsListActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName="com.gmail.safarov.umid.wcards.activities.pack.PackActivity" />
+        <activity
+            android:name="com.gmail.safarov.umid.wcards.activities.translation.TranslationActivity"
+            android:parentActivityName="com.gmail.safarov.umid.wcards.activities.wordslist.WordsListActivity" />
+        <activity
+            android:name="com.gmail.safarov.umid.wcards.activities.drawing.DrawingActivity"
+            android:parentActivityName="com.gmail.safarov.umid.wcards.activities.pack.PackActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.gmail.safarov.umid.wcards.activities.training.TrainingActivity"
+            android:parentActivityName="com.gmail.safarov.umid.wcards.activities.pack.PackActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.gmail.safarov.umid.wcards.activities.instructions.InstructionsActivity"
+            android:parentActivityName="com.gmail.safarov.umid.wcards.activities.packs.PacksActivity" />
+        <activity
+            android:name="com.gmail.safarov.umid.wcards.activities.about.AboutActivity"
+            android:parentActivityName="com.gmail.safarov.umid.wcards.activities.packs.PacksActivity" />
+    </application>
+
+</manifest>

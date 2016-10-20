@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/menu_top"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/packs_drawer_active"
+            android:checked="true"
+            android:title="@string/packs_drawer_item_active" />
+        <item
+            android:id="@+id/packs_drawer_completed"
+            android:title="@string/packs_drawer_item_completed" />
+    </group>
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/packs_drawer_instructions"
+            android:icon="@drawable/ic_instructions"
+            android:title="@string/packs_drawer_item_instructions" />
+        <item
+            android:id="@+id/packs_drawer_about"
+            android:icon="@drawable/ic_info"
+            android:title="@string/packs_drawer_item_info" />
+    </group>
+</menu>
