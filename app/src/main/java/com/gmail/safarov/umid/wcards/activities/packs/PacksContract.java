@@ -27,7 +27,7 @@ public interface PacksContract {
 
         void showMessage(@StringRes int messageResId);
 
-        void runOnUIThread(@NonNull Runnable runnable);
+        boolean isActive();
 
     }
 

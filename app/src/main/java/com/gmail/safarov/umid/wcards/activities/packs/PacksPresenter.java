@@ -2,6 +2,7 @@ package com.gmail.safarov.umid.wcards.activities.packs;
 
 import android.Manifest;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Size;
@@ -92,22 +93,19 @@ public class PacksPresenter implements PacksContract.Presenter {
      * @param filePath path to the text
      */
     @Override
-    public void createPack(@NonNull final String filePath) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
+    public void createPack(@NonNull String filePath) {
 
-                    File file = new File(filePath);
+        new AsyncTask<String, Void, Long>() {
+            int exceptionMessageResId = 0;
+
+            @Override
+            protected Long doInBackground(String... params) {
+                try {
+                    File file = new File(params[0]);
                     // Do not allow files greater than 512KB. The best way to use our technique is learning small amount of new words in one Pack.
                     if (file.length() > 512 * 1024) {
-                        mView.runOnUIThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                mView.showMessage(R.string.packs_error_message_big_file);
-                            }
-                        });
-                        return;
+                        exceptionMessageResId = R.string.packs_error_message_big_file;
+                        return 0L;
                     }
 
                     StringBuilder text = new StringBuilder();
@@ -130,26 +128,25 @@ public class PacksPresenter implements PacksContract.Presenter {
 
                     // crate new pack
                     Pack pack = new Pack(filename, text.toString());
-                    final long packId = mDataSource.createPack(pack);
-
-                    // open created pack editing
-                    mView.runOnUIThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mView.showPack(packId);
-                        }
-                    });
-
+                    return mDataSource.createPack(pack);
                 } catch (IOException e) {
-                    mView.runOnUIThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mView.showMessage(R.string.packs_error_message_cant_read_file);
-                        }
-                    });
+                    exceptionMessageResId = R.string.packs_error_message_cant_read_file;
+                }
+                return 0L;
+            }
+
+            @Override
+            protected void onPostExecute(Long packId) {
+                //if user still works with the view
+                if (mView.isActive()) {
+                    //show pack if there is no exception, show exception otherwise
+                    if (packId == 0)
+                        mView.showMessage(exceptionMessageResId);
+                    else
+                        mView.showPack(packId);
                 }
             }
-        }).start();
+        }.execute(filePath);
     }
 
     @Override

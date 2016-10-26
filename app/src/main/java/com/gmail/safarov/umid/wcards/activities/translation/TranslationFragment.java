@@ -171,12 +171,11 @@ public class TranslationFragment extends Fragment implements TranslationContract
     }
 
     /**
-     * Runs task on UIThread. Does nothing if activity already destroyed
+     * Returns true if user is currently working with this fragment
      */
     @Override
-    public void runOnUIThread(@NonNull Runnable runnable) {
-        if (getActivity() != null)
-            getActivity().runOnUiThread(runnable);
+    public boolean isActive() {
+        return isResumed() && !isRemoving();
     }
 
     @OnClick(R.id.edit_word_button)

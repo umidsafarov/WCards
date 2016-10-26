@@ -1,5 +1,7 @@
 package com.gmail.safarov.umid.wcards.lingua;
 
+import android.os.AsyncTask;
+
 import com.gmail.safarov.umid.wcards.lingua.models.LinguaTranslations;
 
 import java.io.File;
@@ -68,40 +70,66 @@ public class LinguaAPI {
     /**
      * Gets the given word translation
      */
-    public Call translate(final String word, final LinguaCallbackListener<LinguaTranslations> callbackListener) {
+    public Call translate(String word, final LinguaCallbackListener<LinguaTranslations> callbackListener) {
         final Call<LinguaTranslations> call = service.translate(word);
-        new Thread(new Runnable() {
+
+        new AsyncTask<Void, Void, Response<LinguaTranslations>>() {
+            String errorMessage;
+
             @Override
-            public void run() {
+            protected Response<LinguaTranslations> doInBackground(Void... params) {
                 try {
-                    Response<LinguaTranslations> response = call.execute();
-                    if (call.isCanceled())
-                        return;
-                    if (response.isSuccessful()) {
-                        callbackListener.onResponse(response.body());
-                    } else
-                        callbackListener.onError(response.errorBody().string());
+                    return call.execute();
                 } catch (IOException e) {
-                    if (!call.isCanceled())
-                        callbackListener.onError(e.getMessage());
+                    errorMessage = e.getMessage();
+                    return null;
                 }
             }
-        }).start();
+
+            @Override
+            protected void onPostExecute(Response<LinguaTranslations> response) {
+                if (!call.isCanceled()) {
+                    if (errorMessage == null) {
+                        if (response.isSuccessful()) {
+                            callbackListener.onResponse(response.body());
+                        } else {
+                            try {
+                                callbackListener.onError(response.errorBody().string());
+                            } catch (IOException e) {
+                                callbackListener.onError(e.getMessage());
+                            }
+                        }
+                    } else {
+                        callbackListener.onError(errorMessage);
+                    }
+                }
+            }
+        }
+
+                .
+
+                        execute();
+
         return call;
     }
+
 
     /**
      * Gets the sound file from the given URL
      */
+
     public Call downloadVoice(final String url, final File file, final LinguaCallbackListener<File> callbackListener) {
         final Call<ResponseBody> call = service.downloadVoice(url);
-        new Thread(new Runnable() {
+
+        new AsyncTask<Void, Void, File>() {
+            String errorMessage;
+
             @Override
-            public void run() {
+            protected File doInBackground(Void... params) {
                 try {
                     Response<ResponseBody> response = call.execute();
                     if (call.isCanceled())
-                        return;
+                        return null;
                     if (response.isSuccessful()) {
                         try {
                             InputStream inputStream = null;
@@ -125,35 +153,45 @@ public class LinguaAPI {
 
                                 outputStream.flush();
 
-                                if (!call.isCanceled())
-                                    callbackListener.onResponse(file);
+                                return file;
                             } catch (IOException e) {
-                                if (!call.isCanceled())
-                                    callbackListener.onError(e.getMessage());
+                                errorMessage = e.getMessage();
+                                return null;
                             } finally {
                                 if (inputStream != null) {
                                     inputStream.close();
                                 }
-
                                 if (outputStream != null) {
                                     outputStream.close();
                                 }
                             }
                         } catch (IOException e) {
-                            if (!call.isCanceled())
-                                callbackListener.onError(e.getMessage());
+                            errorMessage = e.getMessage();
+                            return null;
                         }
 
                     } else {
-                        if (!call.isCanceled())
-                            callbackListener.onError(response.errorBody().string());
+                        errorMessage = response.errorBody().string();
+                        return null;
                     }
                 } catch (IOException e) {
-                    if (!call.isCanceled())
-                        callbackListener.onError(e.getMessage());
+                    errorMessage = e.getMessage();
+                    return null;
                 }
             }
-        }).start();
+
+            @Override
+            protected void onPostExecute(File file) {
+                if (!call.isCanceled()) {
+                    if (errorMessage == null) {
+                        callbackListener.onResponse(file);
+                    } else {
+                        callbackListener.onError(errorMessage);
+                    }
+                }
+            }
+        }.execute();
+
         return call;
     }
 }

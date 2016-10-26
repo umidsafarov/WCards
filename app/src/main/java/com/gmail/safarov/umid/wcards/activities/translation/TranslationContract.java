@@ -27,7 +27,7 @@ public interface TranslationContract {
 
         void showMessage(@NonNull String message);
 
-        void runOnUIThread(@NonNull Runnable runnable);
+        boolean isActive();
 
     }
 

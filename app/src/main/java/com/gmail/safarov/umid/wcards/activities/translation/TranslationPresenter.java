@@ -132,12 +132,8 @@ public class TranslationPresenter implements TranslationContract.Presenter {
         @Override
         public void onError(@NonNull final String errorMessage) {
             mCurrentLinguaCall = null;
-            mView.runOnUIThread(new Runnable() {
-                @Override
-                public void run() {
-                    mView.showLoadingError(errorMessage);
-                }
-            });
+            if (mView.isActive())
+                mView.showLoadingError(errorMessage);
         }
     };
 
@@ -160,25 +156,18 @@ public class TranslationPresenter implements TranslationContract.Presenter {
         @Override
         public void onError(@NonNull final String errorMessage) {
             mCurrentLinguaCall = null;
-            mView.runOnUIThread(new Runnable() {
-                @Override
-                public void run() {
-                    mView.showLoadingError(errorMessage);
-                }
-            });
+            if (mView.isActive())
+                mView.showLoadingError(errorMessage);
         }
     };
 
     private void downloadComplete() {
-        mView.runOnUIThread(new Runnable() {
-            @Override
-            public void run() {
-                mView.setVoiceAvailable(!"".equals(mWords.get(0).getVoiceFileName()));
-                if (mTranslationsResponse.getVariants().size() > 0)
-                    mView.showTranslations(mTranslationsResponse.getVariants());
-                else
-                    mView.showNoDataLabel();
-            }
-        });
+        if (mView.isActive()) {
+            mView.setVoiceAvailable(!"".equals(mWords.get(0).getVoiceFileName()));
+            if (mTranslationsResponse.getVariants().size() > 0)
+                mView.showTranslations(mTranslationsResponse.getVariants());
+            else
+                mView.showNoDataLabel();
+        }
     }
 }
